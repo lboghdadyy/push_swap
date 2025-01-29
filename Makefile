@@ -1,26 +1,33 @@
-CC=cc
-CFLAGS=-Wall -Wextra -Werror
-#name
-NAME=push_swap
-#src files
-SRC=srcs/ft_split.c srcs/push_swap_utils.c push_swap_main.c
-HEADER=header/push_swap.h
-#object files
-OBJ=$(SRC:.c=.o)
+# Compiler and Flags
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
 
 RM = rm -rf
 
 
-all : $(NAME)
+SRCS = push_swap.c sort/handling.c parcing/checking.c parcing/ft_split.c parcing/ft_strjoin.c parcing/substr.c includes/ft_atoi.c includes/ft_lst_utils.c \
+		instructions/push.c instructions/reverse_rotate.c instructions/rotat.c instructions/swap.c sort/sort.c sort/sort2.c
+HEADER = includes/push_swap.h
 
-$(NAME) : $(OBJ)
-    $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+NAME = push_swap
 
-%.o : %.c $(HEADER)
-    $(CC) $(CFLAGS) $(SRC) -c $< -o $@
+OBJ = $(SRCS:.c=.o)
 
-clean :
-    $(RM) $(OBJ)
+all: $(NAME)
 
-fclean : clean
-    $(RM) $(NAME)
+$(NAME): $(OBJ)
+	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.c $(HEADER)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@ $(RM) $(OBJ)
+
+fclean: clean
+	@ $(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

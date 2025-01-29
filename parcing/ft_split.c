@@ -1,6 +1,6 @@
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
-void	free_tab(char **str)
+static void	free_tab(char **str)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ static	size_t	index_it(int i, const char *str, char c)
 	return (i);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str;
 	size_t	i;
