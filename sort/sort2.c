@@ -105,7 +105,6 @@ void just_sort(t_list **stack_a)
 
     if (are_they_sorted(*stack_a))
     {
-        
         start_pushing(stack_a, &stack_b);
         sort_three(stack_a);
         set_index(stack_a);
