@@ -7,7 +7,9 @@ RM = rm -rf
 
 
 SRCS = push_swap.c sort/handling.c parcing/checking.c parcing/ft_split.c parcing/ft_strjoin.c parcing/substr.c includes/ft_atoi.c includes/ft_lst_utils.c \
-		instructions/push.c instructions/reverse_rotate.c instructions/rotat.c instructions/swap.c sort/sort.c sort/sort2.c
+		instructions/push.c instructions/reverse_rotate.c instructions/rotat.c instructions/swap.c sort/sort.c sort/sort2.c sort/sorting.c \
+		instructions/silent_instruction.c sort/duplicate_list.c sort/countinue_the_proccess.c
+
 HEADER = includes/push_swap.h
 
 NAME = push_swap

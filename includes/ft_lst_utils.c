@@ -20,6 +20,19 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
+int	ft_lstsize(t_list *lst)
+{
+	size_t	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
 void	ft_lstclear(t_list **lst)
 {
 	t_list *aux;

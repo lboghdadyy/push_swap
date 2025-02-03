@@ -108,5 +108,7 @@ int    handel_this(char    *args)
 		sort_four(&lst);
 	else if(args_count == 5)
 		sort_five(&lst);
+	else
+		just_sort(&lst);
 	return (1);
 }

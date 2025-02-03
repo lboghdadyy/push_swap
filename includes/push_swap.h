@@ -4,12 +4,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 typedef struct	s_list
 {
 	int			    content;
 	struct s_list	*next;
 	struct s_list	*previous;
+	int				index;
+	int				target_index;
+	int				status;
+	int				target_status;
 } t_list;
 
 char    *checking_arguments(int argc, char **argv);
@@ -30,6 +35,27 @@ void    sort_four(t_list **list);
 int     get_the_min(t_list *list);
 int		are_they_sorted(t_list *list);
 int     index_of_min(t_list *list);
+int		get_the_max(t_list *lst);
+int		ft_lstsize(t_list *lst);
+void	find_target(t_list **stack_a, t_list **stack_b);
+void    set_index(t_list **stack);
+void	start_sorting(t_list **stack_a, t_list **stack_b);
+void    just_sort(t_list    **stack_a);
+int     get_the_index(int value, t_list *list);
+t_list *duplicate_list(t_list *original);
+void    silent_ra(t_list **stack);
+void    silent_rb(t_list **stack);
+void	silent_sa(t_list **stack);
+void	silent_sb(t_list **stack);
+void    silent_rra(t_list **stack);
+void    silent_rrb(t_list **stack);
+void    silent_rrr(t_list **stack_a, t_list **stack_b);
+void    silent_rr(t_list **stack_a, t_list **stack_b);
+void    rotat(t_list **list);
+void    swap(t_list **stack);
+void	reverse_rotate(t_list **list);
+int		status_index(t_list *list, int index);
+void   	continue_the_procc(int index, int target, t_list **stack_a, t_list **stack_b);
 
 /*instructions :*/
 
