@@ -9,7 +9,7 @@ t_list	*ft_lstnew(int value)
 		return (NULL);
 	new->content = value;
 	new->next = NULL;
-    new->previous = NULL;
+	new->previous = NULL;
 	return (new);
 }
 
@@ -35,7 +35,7 @@ int	ft_lstsize(t_list *lst)
 
 void	ft_lstclear(t_list **lst)
 {
-	t_list *aux;
+	t_list	*aux;
 
 	if (!*lst)
 		return ;
@@ -50,7 +50,7 @@ void	ft_lstclear(t_list **lst)
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *last;
+	t_list	*last;
 
 	if (!alst || !new)
 		return ;

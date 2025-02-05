@@ -1,9 +1,9 @@
 #include "../includes/push_swap.h"
 
-void    swap(t_list **stack)
+void	swap(t_list **stack)
 {
-	t_list *tmp;
-	t_list  *tmp2;
+	t_list	*tmp;
+	t_list	*tmp2;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;

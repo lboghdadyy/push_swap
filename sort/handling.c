@@ -1,9 +1,9 @@
 #include "../includes/push_swap.h"
 
-int     how_many(char   *string)
+int	how_many(char *string)
 {
-	int count;
-	int index;
+	int	count;
+	int	index;
 
 	index = 0;
 	count = 0;
@@ -21,12 +21,13 @@ int     how_many(char   *string)
 	return (count);
 }
 
-int getting_number(char *string, int *index)
+int	getting_number(char *string, int *index)
 {
-	int index1 = 0;
-	char number[20];
-	long value;
+	int		index1;
+	char	number[20];
+	long	value;
 
+	index1 = 0;
 	while (string[*index] == 32)
 		(*index)++;
 	while (string[*index] && string[*index] != 32)
@@ -38,18 +39,18 @@ int getting_number(char *string, int *index)
 	}
 	number[index1] = '\0';
 	value = ft_atoi(number);
-	return (int)value;
+	return (value);
 }
 
-t_list  *create_linked_list(char *args, int args_count)
+t_list	*create_linked_list(char *args, int args_count)
 {
-	int     value;
+	int		value;
 	t_list	*lst;
 	t_list	*tmp;
 	int		index;
-	int		index1 = 0;
+	int		index1;
 
-	index = 0;
+	(1) && (index = 0, index1 = 0);
 	lst = NULL;
 	while (index < args_count)
 	{
@@ -70,7 +71,7 @@ t_list  *create_linked_list(char *args, int args_count)
 
 int	are_they_sorted(t_list *list)
 {
-	int i;
+	int	i;
 
 	i = list->content;
 	list = list->next;
@@ -85,23 +86,22 @@ int	are_they_sorted(t_list *list)
 	return (0);
 }
 
-int    handel_this(char    *args)
+int	handel_this(char    *args)
 {
 	t_list	*lst;
-	int     args_count;
+	int		args_count;
 
 	args_count = how_many(args);
 	if (args_count == 0)
 		return (-1);
 	lst = create_linked_list(args, args_count);
-	if(duplicate_args(lst))
+	if(duplicate_args(lst) || !lst)
 		return (-1);
 	if (args_count == 2)
 	{
-		
+		if (are_they_sorted(lst))
 			sa(&lst);
 	}
-
 	else if (args_count == 3)
 		sort_three(&lst);
 	else if(args_count == 4)
@@ -110,5 +110,6 @@ int    handel_this(char    *args)
 		sort_five(&lst);
 	else
 		just_sort(&lst);
+	ft_lstclear(&lst);
 	return (1);
 }

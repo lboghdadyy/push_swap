@@ -1,6 +1,4 @@
 #include "../includes/push_swap.h"
-#include <stdio.h>
-#include "../includes/push_swap.h"
 
 void	set_status(t_list *stack)
 {
@@ -50,13 +48,10 @@ void	ste_target_status(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	do_this(int i, int trgt, t_list **s_a, t_list **s_b)
+int	do_this(int i, int trgt, t_list **s_a, t_list **s_b)
 {
 	if (trgt == -1)
-	{
-		printf("error\n");
-		exit(0);
-	}
+		return (-1);
 	while ((*s_b)->index != i || (*s_a)->index != trgt)
 	{
 		if ((*s_b)->index != i && (*s_a)->index != trgt)
@@ -64,37 +59,25 @@ void	do_this(int i, int trgt, t_list **s_a, t_list **s_b)
 			if (status_index(*s_b, i) && status_index(*s_a, trgt))
 				rrr(s_a, s_b);
 			else if (!status_index(*s_b, i) && status_index(*s_a, trgt))
-			{
-				rb(s_b);
-				rra(s_a);
-			}
+				up_down(s_a, s_b);
 			else if (!status_index(*s_b, i) && !status_index(*s_a, trgt))
-			{
 				rr(s_a, s_b);
-			}
-			else 
-			{
-				rrb(s_b);
-				ra(s_a);
-			}
+			else
+				down_up(s_a, s_b);
 		}
 		else
-			continue_the_procc(i, trgt, s_a, s_b);
+			cont_the_proc(i, trgt, s_a, s_b);
 		set_status(*s_a);
 		set_status(*s_b);
 	}
 	pa(s_a, s_b);
+	return (1);
 }
 
-
-
-
-
-
-void start_sorting(t_list **stack_a, t_list **stack_b)
+int	start_sorting(t_list **stack_a, t_list **stack_b)
 {
-	int best;
-	
+	int	best;
+
 	while (*stack_b)
 	{
 		set_index(stack_b);
@@ -105,9 +88,11 @@ void start_sorting(t_list **stack_a, t_list **stack_b)
 		ste_target_status(stack_a, stack_b);
 		best = best_move(*stack_a, *stack_b);
 		if (best == -1)
-			return;
-		do_this(best, get_target(*stack_b, best), stack_a, stack_b);
+			return (-1);
+		if (!do_this(best, get_target(*stack_b, best), stack_a, stack_b))
+			return (-1);
 	}
 	while ((*stack_a)->index != get_the_index(get_the_min(*stack_a), *stack_a))
 		ra(stack_a);
+	return (1);
 }

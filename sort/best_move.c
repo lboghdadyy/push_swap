@@ -29,7 +29,7 @@ int	best_move(t_list *stack_a, t_list *stack_b)
 	return (index);
 }
 
-int     get_target(t_list *list, int index)
+int	get_target(t_list *list, int index)
 {
 	while (list->index != index)
 		list = list->next;

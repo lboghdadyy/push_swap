@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:27:24 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/01/25 12:23:29 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:12:30 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long	ft_atoi(char *s)
 {
 	long	number;
-	int				sign;
-	int				i;
+	int		sign;
+	int		i;
 
 	i = 0;
 	sign = 1;

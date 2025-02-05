@@ -1,25 +1,25 @@
 #include "../includes/push_swap.h" 
 
-void   continue_the_procc(int index, int target, t_list **stack_a, t_list **stack_b)
+void	cont_the_proc(int i, int t, t_list **s_a, t_list **s_b)
 {
-    if ((*stack_b)->index != index)
-    {
-        while ((*stack_b)->index != index)
-        {
-            if(status_index(*stack_b, index))
-                rrb(stack_b);
-            else
-                rb(stack_b);
-        }
-    }
-    if ((*stack_a)->index != target)
-    {
-        while ((*stack_a)->index != target)
-        {
-            if(status_index(*stack_a, target))
-                rra(stack_a);
-            else
-                ra(stack_a);
-        }
-    }
+	if ((*s_b)->index != i)
+	{
+		while ((*s_b)->index != i)
+		{
+			if (status_index(*s_b, i))
+				rrb(s_b);
+			else
+				rb(s_b);
+		}
+	}
+	if ((*s_a)->index != t)
+	{
+		while ((*s_a)->index != t)
+		{
+			if (status_index(*s_a, t))
+				rra(s_a);
+			else
+				ra(s_a);
+		}
+	}
 }
