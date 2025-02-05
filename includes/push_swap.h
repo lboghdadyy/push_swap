@@ -43,19 +43,13 @@ void	start_sorting(t_list **stack_a, t_list **stack_b);
 void    just_sort(t_list    **stack_a);
 int     get_the_index(int value, t_list *list);
 t_list *duplicate_list(t_list *original);
-void    silent_ra(t_list **stack);
-void    silent_rb(t_list **stack);
-void	silent_sa(t_list **stack);
-void	silent_sb(t_list **stack);
-void    silent_rra(t_list **stack);
-void    silent_rrb(t_list **stack);
-void    silent_rrr(t_list **stack_a, t_list **stack_b);
-void    silent_rr(t_list **stack_a, t_list **stack_b);
 void    rotat(t_list **list);
 void    swap(t_list **stack);
 void	reverse_rotate(t_list **list);
 int		status_index(t_list *list, int index);
 void   	continue_the_procc(int index, int target, t_list **stack_a, t_list **stack_b);
+int		best_move(t_list *stack_a, t_list *stack_b);
+int     get_target(t_list *list, int index);
 
 /*instructions :*/
 
