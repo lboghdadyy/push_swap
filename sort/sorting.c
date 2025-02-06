@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 10:30:08 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/06 13:01:18 by sbaghdad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	set_status(t_list *stack)
@@ -93,6 +105,11 @@ int	start_sorting(t_list **stack_a, t_list **stack_b)
 			return (-1);
 	}
 	while ((*stack_a)->index != get_the_index(get_the_min(*stack_a), *stack_a))
-		ra(stack_a);
+	{
+		if (!status_index(*stack_a ,get_the_index(get_the_min(*stack_a), *stack_a)))
+			ra(stack_a);
+		else
+			rra(stack_a);
+	}
 	return (1);
 }

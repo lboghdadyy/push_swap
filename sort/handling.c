@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handling.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/06 10:37:48 by sbaghdad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	how_many(char *string)
@@ -86,7 +98,7 @@ int	are_they_sorted(t_list *list)
 	return (0);
 }
 
-int	handel_this(char    *args)
+int	handel_this(char	*args)
 {
 	t_list	*lst;
 	int		args_count;
@@ -95,21 +107,21 @@ int	handel_this(char    *args)
 	if (args_count == 0)
 		return (-1);
 	lst = create_linked_list(args, args_count);
-	if(duplicate_args(lst) || !lst)
+	if (duplicate_args(lst) || !lst)
 		return (-1);
-	if (args_count == 2)
+	if (are_they_sorted(lst))
 	{
-		if (are_they_sorted(lst))
+		if (args_count == 2)
 			sa(&lst);
+		else if (args_count == 3)
+			sort_three(&lst);
+		else if (args_count == 4)
+			sort_four(&lst);
+		else if (args_count == 5)
+			sort_five(&lst);
+		else
+			just_sort(&lst);
 	}
-	else if (args_count == 3)
-		sort_three(&lst);
-	else if(args_count == 4)
-		sort_four(&lst);
-	else if(args_count == 5)
-		sort_five(&lst);
-	else
-		just_sort(&lst);
 	ft_lstclear(&lst);
 	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small_numb.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 10:30:05 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/06 10:37:25 by sbaghdad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	sort_three(t_list **list)
@@ -42,30 +54,26 @@ void	sort_five(t_list **list)
 	t_list	*stack_b;
 	int		index;
 
-	if (are_they_sorted(*list))
+	stack_b = NULL;
+	(1) && (min = get_the_min(*list), index = index_of_min(*list));
+	if (index >= 3)
 	{
-		stack_b = NULL;
-		min = get_the_min(*list);
-		index = index_of_min(*list);
-		if (index >= 3)
-		{
-			while ((*list)->content != min)
-				rra(list);
-		}
-		else
-		{
-			while ((*list)->content != min)
-				ra(list);
-		}
-		pb(list, &stack_b);
-		min = get_the_min(*list);
+		while ((*list)->content != min)
+			rra(list);
+	}
+	else
+	{
 		while ((*list)->content != min)
 			ra(list);
-		pb(list, &stack_b);
-		sort_three(list);
-		pa(list, &stack_b);
-		pa(list, &stack_b);
 	}
+	pb(list, &stack_b);
+	min = get_the_min(*list);
+	while ((*list)->content != min)
+		ra(list);
+	pb(list, &stack_b);
+	sort_three(list);
+	pa(list, &stack_b);
+	pa(list, &stack_b);
 }
 
 void	set_index(t_list **stack)
