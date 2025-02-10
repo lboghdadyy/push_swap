@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:01 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/06 10:31:02 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:17:03 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		status_index(t_list *list, int index);
 void	cont_the_proc(int i, int t, t_list **s_a, t_list **s_b);
 int		best_move(t_list *stack_a, t_list *stack_b);
 int		get_target(t_list *list, int index);
+void	free_tab(char **str);
 
 /*shortcuts*/
 

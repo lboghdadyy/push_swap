@@ -6,11 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:04:05 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:06:30 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../push_swap_bonus.h"
 
 int	check_one_arg(char *str)
 {

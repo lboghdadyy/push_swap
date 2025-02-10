@@ -6,11 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:04 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/08 18:35:42 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 12:37:30 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_bonus.h"
 
 t_list	*ft_lstnew(int value)
 {

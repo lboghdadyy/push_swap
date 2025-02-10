@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:08 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/06 13:01:18 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:11:19 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,30 +86,30 @@ int	do_this(int i, int trgt, t_list **s_a, t_list **s_b)
 	return (1);
 }
 
-int	start_sorting(t_list **stack_a, t_list **stack_b)
+int	start_sorting(t_list **s_a, t_list **s_b)
 {
 	int	best;
 
-	while (*stack_b)
+	while (*s_b)
 	{
-		set_index(stack_b);
-		set_index(stack_a);
-		set_status(*stack_b);
-		set_status(*stack_a);
-		find_target(stack_a, stack_b);
-		ste_target_status(stack_a, stack_b);
-		best = best_move(*stack_a, *stack_b);
+		set_index(s_b);
+		set_index(s_a);
+		set_status(*s_b);
+		set_status(*s_a);
+		find_target(s_a, s_b);
+		ste_target_status(s_a, s_b);
+		best = best_move(*s_a, *s_b);
 		if (best == -1)
 			return (-1);
-		if (!do_this(best, get_target(*stack_b, best), stack_a, stack_b))
+		if (!do_this(best, get_target(*s_b, best), s_a, s_b))
 			return (-1);
 	}
-	while ((*stack_a)->index != get_the_index(get_the_min(*stack_a), *stack_a))
+	while ((*s_a)->index != get_the_index(get_the_min(*s_a), *s_a))
 	{
-		if (!status_index(*stack_a ,get_the_index(get_the_min(*stack_a), *stack_a)))
-			ra(stack_a);
+		if (!status_index(*s_a, get_the_index(get_the_min(*s_a), *s_a)))
+			ra(s_a);
 		else
-			rra(stack_a);
+			rra(s_a);
 	}
 	return (1);
 }

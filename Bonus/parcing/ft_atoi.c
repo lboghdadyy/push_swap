@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:10:07 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/01/08 12:27:24 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/10 12:31:04 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	free_tab(char **str)
+long	ft_atoi(char *s)
 {
-	int	i;
+	long	number;
+	int		sign;
+	int		i;
 
 	i = 0;
-	while (str[i])
+	sign = 1;
+	number = 0;
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+		i++;
+	if (s[i] == '+' || s[i] == '-')
 	{
-		free(str[i]);
+		if (s[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	free (str);
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		number = (number * 10) + (s[i] - 48);
+		i++;
+	}
+	return (number * sign);
 }

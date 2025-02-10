@@ -6,11 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:10:07 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:06:51 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../push_swap_bonus.h"
 
 void	free_tab(char **str)
 {
@@ -22,5 +22,5 @@ void	free_tab(char **str)
 		free(str[i]);
 		i++;
 	}
-	free (str);
+	free(str);
 }

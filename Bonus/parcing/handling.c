@@ -6,11 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:41:55 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:44:17 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../push_swap_bonus.h"
 
 int	how_many(char *string)
 {
@@ -81,47 +81,15 @@ t_list	*create_linked_list(char *args, int args_count)
 	return (lst);
 }
 
-int	are_they_sorted(t_list *list)
+int	handel_this(t_list **stack_a, char	*args)
 {
-	int	i;
-
-	i = list->content;
-	list = list->next;
-	while (list)
-	{
-		if (i > list->content)
-			return (1);
-		else
-			i = list->content;
-		list = list->next;
-	}
-	return (0);
-}
-
-int	handel_this(char	*args)
-{
-	t_list	*lst;
 	int		args_count;
 
 	args_count = how_many(args);
 	if (args_count == 0)
 		return (-1);
-	lst = create_linked_list(args, args_count);
-	if (duplicate_args(lst) || !lst)
-		return (ft_lstclear(&lst), -1);
-	if (are_they_sorted(lst))
-	{
-		if (args_count == 2)
-			sa(&lst);
-		else if (args_count == 3)
-			sort_three(&lst);
-		else if (args_count == 4)
-			sort_four(&lst);
-		else if (args_count == 5)
-			sort_five(&lst);
-		else
-			just_sort(&lst);
-	}
-	ft_lstclear(&lst);
+	*stack_a = create_linked_list(args, args_count);
+	if (duplicate_args(*stack_a) || !stack_a)
+		return (ft_lstclear(stack_a), -1);
 	return (1);
 }
