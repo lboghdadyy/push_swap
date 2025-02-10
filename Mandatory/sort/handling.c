@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:41:55 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:07:56 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,17 @@ int	how_many(char *string)
 	return (count);
 }
 
-int	getting_number(char *string, int *index)
+long long	getting_number(char *string, int *index)
 {
-	int		index1;
-	char	number[20];
-	long	value;
+	int			index1;
+	char		number[30];
+	long long	value;
 
 	index1 = 0;
 	while (string[*index] == 32)
 		(*index)++;
 	while (string[*index] && string[*index] != 32)
 	{
-		if (index1 >= 19)
-			return (0);
 		number[index1++] = string[*index];
 		(*index)++;
 	}
@@ -56,11 +54,11 @@ int	getting_number(char *string, int *index)
 
 t_list	*create_linked_list(char *args, int args_count)
 {
-	int		value;
-	t_list	*lst;
-	t_list	*tmp;
-	int		index;
-	int		index1;
+	long long	value;
+	t_list		*lst;
+	t_list		*tmp;
+	int			index;
+	int			index1;
 
 	(1) && (index = 0, index1 = 0);
 	lst = NULL;
@@ -68,10 +66,7 @@ t_list	*create_linked_list(char *args, int args_count)
 	{
 		value = getting_number(args, &index1);
 		if (value > 2147483647 || value < -2147483648)
-		{
-			write(1, "error\n", 7);
 			return (NULL);
-		}
 		tmp = ft_lstnew(value);
 		if (!tmp)
 			return (ft_lstclear(&lst), NULL);

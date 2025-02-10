@@ -6,31 +6,53 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:04:05 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:12:41 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_one_arg(char *str)
+int	ft_isdigit(int c)
 {
-	int	index;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
 
-	index = 0;
-	while (str[index])
+int	next_number_size(char *string, int index)
+{
+	int	count;
+
+	count = 0;
+	while (ft_isdigit(string[index]))
 	{
-		if (str[index] == 32)
-			index++;
-		else if (str[index] == '-' || str[index] == '+')
+		index++;
+		count++;
+	}
+	return (count);
+}
+
+int	check_one_arg(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == 32)
+			i++;
+		else if (s[i] == '-' || s[i] == '+')
 		{
-			if (str[index - 1] != 32 && str[index - 1])
+			if (!ft_isdigit(s[i]) || (s[i - 1] != 32 && s[i - 1]) || !s[i + 1])
 				return (0);
-			if (str[index + 1] > '9' || str[index + 1] < '0' || !str[index + 1])
-				return (0);
-			index++;
+			i++;
 		}
-		else if (str[index] >= '0' && str[index] <= '9')
-			index++;
+		else if (ft_isdigit(s[i]))
+		{
+			if (next_number_size(s, i) > 11)
+				return (0);
+			i++;
+		}
 		else
 			return (0);
 	}
@@ -55,7 +77,7 @@ char	*checking_arguments(int argc, char **argv)
 		if (!args)
 			return (NULL);
 		if (!check_one_arg(args))
-			return (NULL);
+			return (free(args), NULL);
 	}
 	return (args);
 }

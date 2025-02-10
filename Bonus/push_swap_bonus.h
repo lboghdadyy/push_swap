@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:40:30 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:39:13 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 20:21:43 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_list
 char	*checking_arguments(int argc, char **argv);
 int		handel_this(t_list **stack_a, char	*args);
 char	*ft_strjoin(int size, char **strs, char sep);
-size_t	ft_strlen(const char *s);
+
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 t_list	*ft_lstnew(int value);
 t_list	*ft_lstlast(t_list *lst);
@@ -39,5 +39,8 @@ void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 long	ft_atoi(char *s);
 int		duplicate_args(t_list *list);
+char	*get_next_line(int fd);
+int		ft_strchr(char *s, int c);
+size_t	ft_strlen(const char *s);
 
 #endif
