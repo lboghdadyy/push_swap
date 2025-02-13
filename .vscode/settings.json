@@ -3,6 +3,8 @@
         "push_swap.h": "c",
         "chrono": "c",
         "variant": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "push_swap_bonus.h": "c",
+        "random": "c"
     }
 }

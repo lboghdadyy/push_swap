@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:04 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 12:37:30 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:42:47 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_lstsize(t_list *lst)
 {
 	size_t	i;
 
+	if (!lst)
+		return (0);
 	i = 0;
 	while (lst)
 	{

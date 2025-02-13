@@ -6,12 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 20:15:47 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:35:04 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap_bonus.h"
-
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -43,14 +42,14 @@ int	check_one_arg(char *s)
 			i++;
 		else if (s[i] == '-' || s[i] == '+')
 		{
-			if (!ft_isdigit(s[i]) || (s[i - 1] != 32 && s[i - 1]) || !s[i + 1])
+			if (!ft_isdigit(s[i + 1]) || (s[i - 1] != 32 && s[i - 1]) || !s[i + 1])
 				return (0);
 			i++;
 		}
 		else if (ft_isdigit(s[i]))
 		{
 			if (next_number_size(s, i) > 11)
-				return (0);
+				return (free(s), 0);
 			i++;
 		}
 		else
@@ -73,7 +72,7 @@ char	*checking_arguments(int argc, char **argv)
 	}
 	else
 	{
-		args = ft_strjoin(argc - 1, argv + 1, 32);
+		args = ft_strjoin(argc - 1, argv + 1, ' ');
 		if (!args)
 			return (NULL);
 		if (!check_one_arg(args))

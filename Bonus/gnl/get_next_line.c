@@ -6,11 +6,11 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 19:37:47 by sbaghdad          #+#    #+#             */
-/*   Updated: 2024/12/26 15:45:16 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:05:44 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../push_swap_bonus.h"
 
 char	*cut_it(char *str)
 {
@@ -86,7 +86,7 @@ char	*get_it(int fd, char *readed)
 		else if ((bytes == 0 && !readed) || bytes == -1)
 			return (free(buffer), free(readed), NULL);
 		buffer[bytes] = '\0';
-		tmp = ft_strjoin(readed, buffer);
+		tmp = ft_strjoin_gnl(readed, buffer);
 		free (readed);
 		free (buffer);
 		readed = tmp;
@@ -102,6 +102,7 @@ char	*get_next_line(int fd)
 
 	if (fd > 1024 || fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647)
 		return (NULL);
+	
 	readed = get_it(fd, readed);
 	if (!readed)
 	{

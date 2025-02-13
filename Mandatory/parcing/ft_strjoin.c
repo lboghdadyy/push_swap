@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:22 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:10:35 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/12 22:04:29 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char	*ft_strchr(char *s, int c)
 		s++;
 	}
 	if (*s == c)
-	{
-		return ((char *)s);
-	}
+		return (s);
 	return (NULL);
 }
 

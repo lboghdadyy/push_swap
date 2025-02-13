@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 20:07:56 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:52:36 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ t_list	*create_linked_list(char *args, int args_count)
 	{
 		value = getting_number(args, &index1);
 		if (value > 2147483647 || value < -2147483648)
-			return (NULL);
+			return (free(args), NULL);
 		tmp = ft_lstnew(value);
 		if (!tmp)
-			return (ft_lstclear(&lst), NULL);
+			return (ft_lstclear(&lst),free(args), NULL);
 		ft_lstadd_back(&lst, tmp);
 		index++;
 	}

@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:22 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:14:55 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:05:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@
 
 #include "../push_swap_bonus.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(char *str, char c)
 {
-	while ((*s != '\0') && (*s != c))
+	if (!str)
+		return (NULL);
+	while (*str)
 	{
-		s++;
-	}
-	if (*s == c)
-	{
-		return ((char *)s);
+		if (*str == c)
+			return (str);
+		str++;
 	}
 	return (NULL);
 }
@@ -48,7 +48,7 @@ int	ft_contains_number(char *s)
 	{
 		while (s[index] == 32 && s[index])
 			index++;
-		if (!ft_strchr("0123456789+-", s[index]) || !s[index])
+		if (!ft_strchr("0123456789+-", s[index]))
 			return (0);
 		index++;
 	}	

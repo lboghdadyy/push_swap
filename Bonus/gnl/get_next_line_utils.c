@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
+/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 19:38:03 by sbaghdad          #+#    #+#             */
-/*   Updated: 2024/12/23 12:23:42 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:32:58 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../push_swap_bonus.h"
 
-size_t	ft_strlen( char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	len;
 
@@ -24,21 +24,6 @@ size_t	ft_strlen( char *s)
 	return (len);
 }
 
-int	ft_strchr(char *s, int c)
-{
-	int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char) c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 char	*ft_strdup(char *s1)
 {
@@ -70,7 +55,7 @@ char	*check_it(char	*str1, char	*str2)
 		return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*string;
 	size_t	len;

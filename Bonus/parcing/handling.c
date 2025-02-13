@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:25:16 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:36:20 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,23 @@ t_list	*create_linked_list(char *args, int args_count)
 	return (lst);
 }
 
-int	are_they_sorted(t_list *list)
+int	are_they_sorted(t_list **stack_a)
 {
 	int	i;
 
-	i = list->content;
-	list = list->next;
-	while (list)
+	i = (*stack_a)->content;
+	(*stack_a) = (*stack_a)->next;
+	while ((*stack_a))
 	{
-		if (i > list->content)
-			return (1);
+		if (i > (*stack_a)->content)
+			return (-1);
 		else
-			i = list->content;
-		list = list->next;
+			i = (*stack_a)->content;
+		(*stack_a) = (*stack_a)->next;
 	}
-	return (0);
+	return (1);
 }
+
 
 int	handel_this(t_list **stack_a,char	*args)
 {
@@ -107,7 +108,6 @@ int	handel_this(t_list **stack_a,char	*args)
 		return (-1);
 	*stack_a = create_linked_list(args, args_count);
 	if (duplicate_args(*stack_a) || !*stack_a)
-		return (ft_lstclear(stack_a), -1);
-	ft_lstclear(stack_a);
+		return (ft_lstclear(stack_a), free(args), -1);
 	return (1);
 }
