@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotat.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:30:50 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/08 18:35:36 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/06 10:30:45 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/15 14:40:49 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	reverse_rotate(t_list **list)
+void	rotat(t_list **list)
 {
+	t_list	*tmp;
 	t_list	*last;
-	t_list	*new_last;
 
 	if (!list || !*list || !(*list)->next)
 		return ;
+	tmp = *list;
+	*list = (*list)->next;
 	last = ft_lstlast(*list);
-	new_last = last->previous;
-	new_last->next = NULL;
-	last->previous = NULL;
-	last->next = *list;
-	(*list)->previous = last;
-	*list = last;
+	last->next = tmp;
+	tmp->next = NULL;
 }
 
-void	rra(t_list **stack)
+
+
+void	ra(t_list **stack)
 {
-	reverse_rotate(stack);
-	write(1, "rra\n", 4);
+	rotat(stack);
+	write(1, "ra\n", 3);
 }
 
-void	rrb(t_list **stack)
+void	rb(t_list **stack)
 {
-	reverse_rotate(stack);
-	write(1, "rrb\n", 4);
+	rotat(stack);
+	write(1, "rb\n", 3);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	write(1, "rrr\n", 4);
+	rotat(stack_a);
+	rotat(stack_b);
+	write(1, "rr\n", 3);
 }

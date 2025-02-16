@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:04 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/08 18:35:42 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/16 19:27:04 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_list	*ft_lstnew(int value)
 		return (NULL);
 	new->content = value;
 	new->next = NULL;
-	new->previous = NULL;
 	return (new);
 }
 
@@ -68,14 +67,8 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		return ;
 	last = ft_lstlast(*alst);
 	if (*alst)
-	{
 		last->next = new;
-		new->previous = last;
-	}
 	else
-	{
 		*alst = new;
-		new->previous = NULL;
-	}
 	new->next = NULL;
 }

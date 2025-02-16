@@ -5,6 +5,7 @@
         "variant": "c",
         "cstdlib": "c",
         "push_swap_bonus.h": "c",
-        "random": "c"
+        "random": "c",
+        "stdio.h": "c"
     }
 }

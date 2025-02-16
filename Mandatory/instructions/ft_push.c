@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:54 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/08 18:35:35 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:05:40 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 void	push(t_list **stack1, t_list **stack2)
 {
 	t_list	*tmp;
-
-	if (!stack1 || !*stack1)
+	
+	if (!stack1 || !stack2)
 		return ;
 	tmp = *stack1;
 	*stack1 = (*stack1)->next;
-	if (*stack1)
-		(*stack1)->previous = NULL;
 	tmp->next = *stack2;
-	if (*stack2)
-		(*stack2)->previous = tmp;
 	*stack2 = tmp;
 }
+
 
 void	pa(t_list **stack_a, t_list **stack_b)
 {

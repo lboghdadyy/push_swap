@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:01 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 13:17:03 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:27:23 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-	struct s_list	*previous;
 	int				index;
 	int				target_index;
 	int				status;
 	int				target_status;
 }	t_list;
 
-char	*checking_arguments(int argc, char **argv);
-char	*ft_strjoin(int size, char **strs, char sep);
-char	**ft_split(char const *s, char c);
-int		handel_this(char	*args);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	**checking_arguments(int argc, char **argv);
+char	*ft_strjoin(int size, char **strs, char *sep);
+char	**ft_split(char *s, char c);
+int		handel_this(char	**args, t_list **stack_a, t_list **stack_b);
+char	*ft_substr(char *s, unsigned int start, size_t len);
 int		duplicate_args(t_list	*list);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen(char *s);
 long	ft_atoi(char *s);
 t_list	*ft_lstnew(int value);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstclear(t_list **lst);
 t_list	*ft_lstlast(t_list *lst);
 void	sort_three(t_list **list);
-void	sort_five(t_list **list);
-void	sort_four(t_list **list);
+void	sort_five(t_list **stack_a, t_list	**stack_b);
+void	sort_four(t_list **stack_a, t_list	**stack_b);
 int		get_the_min(t_list *list);
 int		are_they_sorted(t_list *list);
 int		index_of_min(t_list *list);
@@ -50,7 +50,7 @@ int		ft_lstsize(t_list *lst);
 int		find_target(t_list **stack_a, t_list **stack_b);
 void	set_index(t_list **stack);
 int		start_sorting(t_list **stack_a, t_list **stack_b);
-void	just_sort(t_list	**stack_a);
+void	just_sort(t_list **stack_a, t_list **stack_b);
 int		get_the_index(int value, t_list *list);
 void	rotat(t_list **list);
 void	swap(t_list **stack);
@@ -60,6 +60,9 @@ void	cont_the_proc(int i, int t, t_list **s_a, t_list **s_b);
 int		best_move(t_list *stack_a, t_list *stack_b);
 int		get_target(t_list *list, int index);
 void	free_tab(char **str);
+void    ft_error(char *args, t_list **stack);
+char	*ft_strchr(char *s, int c);
+size_t	ft_strlen(char *s);
 
 /*shortcuts*/
 

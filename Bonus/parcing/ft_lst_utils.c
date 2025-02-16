@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:04 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 22:42:47 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:36:26 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ t_list	*ft_lstnew(int value)
 		return (NULL);
 	new->content = value;
 	new->next = NULL;
-	new->previous = NULL;
 	return (new);
 }
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst && lst->next)
+	if(!lst)
+		return NULL;
+	while (lst->next)
 		lst = lst->next;
 	return (lst);
 }
@@ -70,14 +71,9 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		return ;
 	last = ft_lstlast(*alst);
 	if (*alst)
-	{
 		last->next = new;
-		new->previous = last;
-	}
 	else
-	{
 		*alst = new;
-		new->previous = NULL;
-	}
 	new->next = NULL;
 }
+

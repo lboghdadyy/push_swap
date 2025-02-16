@@ -1,39 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preparing.c                                        :+:      :+:    :+:   */
+/*   ft_preparing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:52 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 22:43:18 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:30:57 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_four(t_list **stack_a)
-{
-	int		min;
-	int		index;
-	t_list	*stack_b;
-
-	if (are_they_sorted(*stack_a))
-	{
-		stack_b = NULL;
-		min = get_the_min(*stack_a);
-		index = index_of_min(*stack_a);
-		if (index > 2)
-			while ((*stack_a)->content != min)
-				rra(stack_a);
-		else
-			while ((*stack_a)->content != min)
-				ra(stack_a);
-		pb(stack_a, &stack_b);
-		sort_three(stack_a);
-		pa(stack_a, &stack_b);
-	}
-}
 
 int	get_the_index(int value, t_list *list)
 {
@@ -93,21 +71,20 @@ void	start_pushing(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	just_sort(t_list **stack_a)
+void	just_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_b;
 	int		ret;
 
-	stack_b = NULL;
 	if (are_they_sorted(*stack_a))
 	{
-		start_pushing(stack_a, &stack_b);
+		start_pushing(stack_a, stack_b);
+		// printf("here\n");
 		sort_three(stack_a);
 		set_index(stack_a);
-		set_index(&stack_b);
-		if (!find_target(stack_a, &stack_b))
+		set_index(stack_b);
+		if (!find_target(stack_a, stack_b))
 			return (ft_lstclear(stack_a));
-		ret = start_sorting(stack_a, &stack_b);
+		ret = start_sorting(stack_a, stack_b);
 		if (ret == -1)
 			return (ft_lstclear(stack_a));
 	}

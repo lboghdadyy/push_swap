@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 19:38:03 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 13:32:58 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:40:21 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,18 @@ char	*ft_strdup(char *s1)
 
 char	*check_it(char	*str1, char	*str2)
 {
+	char	*tmp;
+	
 	if (!str1 && str2)
-		return (ft_strdup(str2));
+	{
+		tmp = ft_strdup(str2);
+		return (tmp);
+	}
 	else if (str1 && !str2)
-		return (ft_strdup(str1));
+	{
+		tmp = ft_strdup(str1);
+		return (tmp);
+	}
 	else
 		return (NULL);
 }
@@ -61,6 +69,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	size_t	len;
 	int		j;
 	int		i;
+
 
 	if (!s1 || !s2)
 		return (check_it(s1, s2));

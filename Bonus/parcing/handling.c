@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 22:36:20 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:34:48 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_list	*create_linked_list(char *args, int args_count)
 		if (value > 2147483647 || value < -2147483648)
 		{
 			write(1, "error\n", 7);
-			return (NULL);
+			return (ft_lstclear(&lst), NULL);
 		}
 		tmp = ft_lstnew(value);
 		if (!tmp)
@@ -98,7 +98,6 @@ int	are_they_sorted(t_list **stack_a)
 	return (1);
 }
 
-
 int	handel_this(t_list **stack_a,char	*args)
 {
 	int		args_count;
@@ -107,7 +106,9 @@ int	handel_this(t_list **stack_a,char	*args)
 	if (args_count == 0)
 		return (-1);
 	*stack_a = create_linked_list(args, args_count);
-	if (duplicate_args(*stack_a) || !*stack_a)
-		return (ft_lstclear(stack_a), free(args), -1);
+	if (!stack_a)
+		return (free(args), -1);
+	if (duplicate_args(*stack_a) == 1)
+		return (ft_lstclear(stack_a), -1);
 	return (1);
 }

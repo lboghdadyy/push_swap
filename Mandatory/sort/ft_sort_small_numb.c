@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_numb.c                                  :+:      :+:    :+:   */
+/*   ft_sort_small_numb.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:05 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/06 10:37:25 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/16 19:16:34 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,33 +48,50 @@ int	index_of_min(t_list *list)
 	return (index);
 }
 
-void	sort_five(t_list **list)
+void	sort_five(t_list **stack_a, t_list **stack_b)
 {
 	int		min;
-	t_list	*stack_b;
 	int		index;
 
-	stack_b = NULL;
-	(1) && (min = get_the_min(*list), index = index_of_min(*list));
-	if (index >= 3)
+	(1) && (min = get_the_min(*stack_a), index = index_of_min(*stack_a));
+	while ((*stack_a)->content != min)
 	{
-		while ((*list)->content != min)
-			rra(list);
+		if (index >= 3)
+				rra(stack_a);
+		else
+				ra(stack_a);
 	}
-	else
-	{
-		while ((*list)->content != min)
-			ra(list);
-	}
-	pb(list, &stack_b);
-	min = get_the_min(*list);
-	while ((*list)->content != min)
-		ra(list);
-	pb(list, &stack_b);
-	sort_three(list);
-	pa(list, &stack_b);
-	pa(list, &stack_b);
+	pb(stack_a, stack_b);
+	min = get_the_min(*stack_a);
+	while ((*stack_a)->content != min)
+		ra(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }
+
+void	sort_four(t_list **stack_a, t_list **stack_b)
+{
+	int		min;
+	int		index;
+
+	if (are_they_sorted(*stack_a))
+	{
+		min = get_the_min(*stack_a);
+		index = index_of_min(*stack_a);
+		if (index > 2)
+			while ((*stack_a)->content != min)
+				rra(stack_a);
+		else
+			while ((*stack_a)->content != min)
+				ra(stack_a);
+		pb(stack_a, stack_b);
+		sort_three(stack_a);
+		pa(stack_a, stack_b);
+	}
+}
+
 
 void	set_index(t_list **stack)
 {

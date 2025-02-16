@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_check_dup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 17:10:07 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/16 16:33:36 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/16 18:22:22 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_tab(char **str)
+int	duplicate_args(t_list *list)
 {
-	int	i;
+	t_list	*outer;
+	t_list	*inner;
 
-	i = 0;
-	while (str[i])
+	outer = list;
+	while (outer)
 	{
-		free(str[i]);
-		i++;
+		inner = outer->next;
+		while (inner)
+		{
+			if (outer->content == inner->content)
+				return (1);
+			inner = inner->next;
+		}
+		outer = outer->next;
 	}
-	free (str);
+	return (0);
 }

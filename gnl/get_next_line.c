@@ -6,7 +6,7 @@
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 19:37:47 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 17:05:44 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/15 12:06:12 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char	*get_it(int fd, char *readed)
 	char	*tmp;
 
 	bytes = 1;
+
 	while (!ft_strchr(readed, '\n'))
 	{
 		buffer = malloc(BUFFER_SIZE + 1);
@@ -85,15 +86,18 @@ char	*get_it(int fd, char *readed)
 			return (free(buffer), readed);
 		else if ((bytes == 0 && !readed) || bytes == -1)
 			return (free(buffer), free(readed), NULL);
+		
 		buffer[bytes] = '\0';
 		tmp = ft_strjoin_gnl(readed, buffer);
 		free (readed);
 		free (buffer);
+		printf("here\n");
 		readed = tmp;
+		
 	}
 	return (readed);
 }
-
+#include <stdio.h>
 char	*get_next_line(int fd)
 {
 	static char	*readed;
@@ -102,7 +106,6 @@ char	*get_next_line(int fd)
 
 	if (fd > 1024 || fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647)
 		return (NULL);
-	
 	readed = get_it(fd, readed);
 	if (!readed)
 	{
@@ -113,6 +116,7 @@ char	*get_next_line(int fd)
 	if (!line)
 		return (free (readed), line);
 	tmp = change_index(readed);
+	
 	readed = tmp;
 	return (line);
 }

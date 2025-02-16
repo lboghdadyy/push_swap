@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:30:11 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/13 17:08:32 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/14 12:16:16 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/15 10:40:44 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-#include <stdio.h>
+#include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+void    ft_error(char *args, t_list **stack)
 {
-	char	*args;
-	int		status;
-
-	args = checking_arguments(ac, av);
-	if (args == NULL)
-	{
-		write (2, "Error\n", 7);
-		return (1);
-	}
-	status = handel_this(args);
-	if (status == -1)
-	{
-		write (2, "Error\n", 7);
-		return (1);
-	}
+    ft_lstclear(stack);
+    free(args);
+    exit(0);
 }
