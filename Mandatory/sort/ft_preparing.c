@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:52 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 19:51:41 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:56:14 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,20 @@ int	find_target(t_list **stack_a, t_list **stack_b)
 
 void	start_pushing(t_list **stack_a, t_list **stack_b)
 {
-	int	mid;
+	int mid;
+	int min;
+	int max;
 
-	mid = (get_the_min(*stack_a) + get_the_max(*stack_a)) / 2;
+	max = get_the_max(*stack_a);
+	min = get_the_min(*stack_a);
+	mid = (min + max) / 2;
+
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->content >= mid)
 		{
 			pb(stack_a, stack_b);
-			if (ft_lstsize(*stack_b) > 1)
+			if (ft_lstsize(*stack_b) != 1) 
 				rb(stack_b);
 		}
 		else

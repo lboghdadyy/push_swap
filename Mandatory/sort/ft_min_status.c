@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:46:34 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 17:22:49 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:53:19 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int     ft_status_of_min(t_list *stack)
     {
         if (tmp->content == min)
         {
-            if(tmp->index >= ((ft_lstsize(stack) + 1 ) / 2))
+            if(tmp->index >= ((ft_lstsize(stack)) / 2))
                 return (1);
             else
                 return (0);
