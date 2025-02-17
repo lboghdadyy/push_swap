@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_push_swap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 18:29:37 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/16 13:06:50 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:05:02 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "ft_push_swap_bonus.h"
 #include <stdio.h>
 
 void print_list(t_list *head) {
@@ -33,22 +33,24 @@ void print_instructions(t_instructions *head) {
 
 int	main(int ac, char **av)
 {
-	char			*args;
-	char			*line;
-	t_instructions	*instrcuctions = NULL;
+	char	**args;
+	int		status;
+	t_list	*stack_a = NULL;
+	t_list	*stack_b = NULL;
+	t_instructions *instructions = NULL;
 	t_instructions	*tmp = NULL;
-	t_list			*stack_a = NULL;
-	t_list			*stack_b = NULL;
-	
-	if (ac >= 2)
+	char			*line;
+
+	if(ac >= 2)
 	{
 		args = checking_arguments(ac, av);
-		if (args == NULL)
+		if (!args)
 		{
 			write (2, "Error\n", 7);
 			return (1);
 		}
-		if (handel_this(&stack_a, args) == -1)
+		status = handel_this(args, &stack_a);
+		if (status == -1)
 		{
 			write (2, "Error\n", 7);
 			return (1);
@@ -61,23 +63,23 @@ int	main(int ac, char **av)
 			if (check_instruction(line) == -1)
 			{
 				write (2, "Error\n", 6);
-				return (ft_clear_instructions(&instrcuctions),1);
+				return (ft_clear_instructions(&instructions),1);
 			}
 			tmp = ft_new_instr(line);
 			if(!tmp)
-				return (ft_lstclear(&stack_a), ft_clear_instructions(&instrcuctions), 1);
-			add_instruction_back(&instrcuctions, tmp);
+				return (ft_lstclear(&stack_a), ft_clear_instructions(&instructions), 1);
+			add_instruction_back(&instructions, tmp);
 		}
-		printf("list size ---> %d\n", ft_instr_size(instrcuctions));
-		while (instrcuctions->next)
+		printf("list size ---> %d\n", ft_instr_size(instructions));
+		while (instructions->next)
 		{
-			printf("instrr ----> {%s\n", instrcuctions->instr);
-			apply_instructions(&stack_a, &stack_b, instrcuctions->instr);
-			instrcuctions = instrcuctions->next;
+			printf("instrr ----> {%s\n", instructions->instr);
+			apply_instructions(&stack_a, &stack_b, instructions->instr);
+			instructions = instructions->next;
 		}
-		ft_clear_instructions(&instrcuctions);
+		ft_clear_instructions(&instructions);
 		print_list(stack_a);
-		if (are_they_sorted(&stack_a) != -1 && !stack_b)
+		if (are_they_sorted(stack_a) != -1 && !stack_b)
 		{
 			write(1, "OK\n", 3);
 			// ft_free_stack(a);

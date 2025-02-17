@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shortcuts.c                                     :+:      :+:    :+:   */
+/*   ft_check_dup_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:29:58 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 23:10:20 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/16 16:33:36 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/17 10:31:47 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../ft_push_swap_bonus.h"
 
-void	down_up(t_list **stack_a, t_list **stack_b)
+int	duplicate_args(t_list *list)
 {
-	rrb(stack_b);
-	ra(stack_a);
-}
+	t_list	*outer;
+	t_list	*inner;
 
-void	up_down(t_list **stack_a, t_list **stack_b)
-{
-	rb(stack_b);
-	rra(stack_a);
+	outer = list;
+	while (outer)
+	{
+		inner = outer->next;
+		while (inner)
+		{
+			if (outer->content == inner->content)
+				return (1);
+			inner = inner->next;
+		}
+		outer = outer->next;
+	}
+	return (0);
 }

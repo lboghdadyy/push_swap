@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:05 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/16 19:16:34 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:28:29 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ void	sort_three(t_list **list)
 		if ((*list)->content == max)
 			ra(list);
 		else if ((*list)->next->content == max)
-		{
-			sa(list);
-			ra(list);
-		}
+			rra(list);
 		if ((*list)->content > (*list)->next->content)
 			sa(list);
 	}
@@ -53,19 +50,19 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 	int		min;
 	int		index;
 
-	(1) && (min = get_the_min(*stack_a), index = index_of_min(*stack_a));
-	while ((*stack_a)->content != min)
+	while (ft_lstsize(*stack_a) > 3)
 	{
-		if (index >= 3)
+		min = get_the_min(*stack_a);
+		index = index_of_min(*stack_a);
+		while ((*stack_a)->content != min)
+		{
+			if (index >= ft_lstsize(*stack_a) / 2)
 				rra(stack_a);
-		else
+			else
 				ra(stack_a);
+		}
+		pb(stack_a, stack_b);
 	}
-	pb(stack_a, stack_b);
-	min = get_the_min(*stack_a);
-	while ((*stack_a)->content != min)
-		ra(stack_a);
-	pb(stack_a, stack_b);
 	sort_three(stack_a);
 	pa(stack_a, stack_b);
 	pa(stack_a, stack_b);

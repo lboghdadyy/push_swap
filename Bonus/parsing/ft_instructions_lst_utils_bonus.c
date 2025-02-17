@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_lst_utils.c                           :+:      :+:    :+:   */
+/*   ft_instructions_lst_utils_bonus.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 15:05:30 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 15:49:12 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:32:32 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
+#include "../ft_push_swap_bonus.h"
 
 t_instructions	*ft_last_instruction(t_instructions *lst)
 {

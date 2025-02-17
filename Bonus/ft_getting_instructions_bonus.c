@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getting_instructions.c                             :+:      :+:    :+:   */
+/*   ft_getting_instructions_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:32:15 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 15:56:37 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:32:59 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "ft_push_swap_bonus.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

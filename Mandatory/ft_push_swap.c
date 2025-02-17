@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:11 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/16 19:04:25 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:33:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	main(int ac, char **av)
 		args = checking_arguments(ac, av);
 		if (!args)
 		{
-			write (2, "Error\n", 7);
+			write (2, "Error\n", 6);
 			return (1);
 		}
 		status = handel_this(args, &stack_a, &stack_b);
 		if (status == -1)
 		{
-			write (2, "Error\n", 7);
+			write (2, "Error\n", 6);
 			return (1);
 		}
 	}

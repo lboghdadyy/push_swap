@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handling.c                                      :+:      :+:    :+:   */
+/*   ft_handling_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 19:47:32 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:01:50 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../ft_push_swap_bonus.h"
 
 int	ft_list_size(char **array)
 {
@@ -83,7 +83,7 @@ int	are_they_sorted(t_list *list)
 	return (0);
 }
 
-int	handel_this(char	**args, t_list **stack_a, t_list **stack_b)
+int	handel_this(char	**args, t_list **stack_a)
 {
 	int		args_count;
 
@@ -95,19 +95,6 @@ int	handel_this(char	**args, t_list **stack_a, t_list **stack_b)
 		return (-1);
 	if (duplicate_args(*stack_a))
 		return (ft_lstclear(stack_a), -1);
-	if (are_they_sorted(*stack_a))
-	{
-		if (args_count == 2)
-			sa(stack_a);
-		else if (args_count == 3)
-			sort_three(stack_a);
-		else if (args_count == 4)
-			sort_four(stack_a, stack_b);
-		else if (args_count == 5)
-			sort_five(stack_a, stack_b);
-		else
-			just_sort(stack_a, stack_b);
-	}
 	ft_lstclear(stack_a);
 	return (1);
 }

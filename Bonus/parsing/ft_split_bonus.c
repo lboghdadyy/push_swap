@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 11:14:21 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:32:42 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../ft_push_swap_bonus.h"
 
 void	free_tab(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (str && str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;

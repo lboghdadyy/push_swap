@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_swap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:38 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 14:53:22 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:31:36 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
+#include "../ft_push_swap_bonus.h"
 
 void	swap(t_list **stack)
 {

@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotat.c                                            :+:      :+:    :+:   */
+/*   ft_rotat_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:45 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 14:52:59 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:31:32 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
+#include "../ft_push_swap_bonus.h"
 
-// void	rotat(t_list **list)
-// {
-// 	t_list	*tmp;
-// 	t_list	*last;
-
-// 	if (!list || !*list || !(*list)->next)
-// 		return ;
-// 	tmp = *list;
-// 	*list = (*list)->next;
-// 	last = ft_lstlast(*list);
-// 	last->next = tmp;
-// 	tmp->next = NULL;
-// }
-
-void	rotat(t_list	**list)
+void	rotat(t_list **list)
 {
 	t_list	*tmp;
+	t_list	*last;
 
-	if (!*list || !(*list)->next)
+	if (!list || !*list || !(*list)->next)
 		return ;
 	tmp = *list;
-	*list = ft_lstlast(*list);
-	(*list)->next = tmp;
-	*list = tmp->next;
+	*list = (*list)->next;
+	last = ft_lstlast(*list);
+	last->next = tmp;
 	tmp->next = NULL;
 }
+
+
 
 void	ra(t_list **stack)
 {

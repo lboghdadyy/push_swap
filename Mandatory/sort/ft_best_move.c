@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   best_move.c                                        :+:      :+:    :+:   */
+/*   ft_best_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:14 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/06 10:29:20 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:29:02 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	best_move(t_list *stack_a, t_list *stack_b)
 	int		index;
 	int		count;
 
-	(1) && (tmp = stack_b, index = -1, count = 5000);
+	(1) && (tmp = stack_b, index = -1, count = 6000);
 	while (tmp)
 	{
 		if (tmp->status)

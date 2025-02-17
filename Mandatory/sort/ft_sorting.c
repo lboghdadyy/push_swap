@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   ft_sorting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:08 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 15:11:19 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:15:41 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	status_index(t_list *list, int index)
 	return (1);
 }
 
-void	ste_target_status(t_list **stack_a, t_list **stack_b)
+void	set_target_status(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;
@@ -60,7 +60,7 @@ void	ste_target_status(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-int	do_this(int i, int trgt, t_list **s_a, t_list **s_b)
+int	ft_execute(int i, int trgt, t_list **s_a, t_list **s_b)
 {
 	if (trgt == -1)
 		return (-1);
@@ -97,19 +97,19 @@ int	start_sorting(t_list **s_a, t_list **s_b)
 		set_status(*s_b);
 		set_status(*s_a);
 		find_target(s_a, s_b);
-		ste_target_status(s_a, s_b);
+		set_target_status(s_a, s_b);
 		best = best_move(*s_a, *s_b);
 		if (best == -1)
 			return (-1);
-		if (!do_this(best, get_target(*s_b, best), s_a, s_b))
+		if (!ft_execute(best, get_target(*s_b, best), s_a, s_b))
 			return (-1);
 	}
-	while ((*s_a)->index != get_the_index(get_the_min(*s_a), *s_a))
+	while (are_they_sorted(*s_a))
 	{
-		if (!status_index(*s_a, get_the_index(get_the_min(*s_a), *s_a)))
-			ra(s_a);
-		else
+		if (ft_status_of_min(*s_a))
 			rra(s_a);
+		else
+			ra(s_a);
 	}
 	return (1);
 }

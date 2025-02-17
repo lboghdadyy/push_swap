@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checking.c                                      :+:      :+:    :+:   */
+/*   ft_checking_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 13:09:47 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:31:53 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "../ft_push_swap_bonus.h"
 
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
+}
+
+int	next_number_size(char *string, int index)
+{
+	int	count;
+
+	count = 0;
+		
+	while (ft_isdigit(string[index]))
+	{
+		index++;
+		count++;
+	}
+	return (count);
 }
 
 int	check_one_arg(char *s)
@@ -27,10 +40,14 @@ int	check_one_arg(char *s)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i] == 32)
+		if (s[i] == 32)
 			i++;
-		if (ft_isdigit(s[i]))
+		else if (ft_isdigit(s[i]))
+		{
+			if (next_number_size(s, i) > 12)
+				return (0);
 			i++;
+		}
 		else if ((s[i] == '-' || s[i] == '+'))
 		{
 			if (!ft_isdigit(s[i + 1]) || (i > 0 && s[i - 1] != 32))
@@ -66,7 +83,7 @@ int	check_multi_arguments(char **array)
 {
 	int index;
 
-	if (!array || !*array)
+	if (!*array)
 		return (0);
 	index = 0;
 	while (array[index])
@@ -98,8 +115,8 @@ char	**checking_arguments(int argc, char **argv)
 			return (0);
 		array = ft_split(args, ' ');
 		if (!array)
-			return (free(args), NULL);
-		if (check_multi_arguments(array) == 0)
+			return (0);
+		if (check_multi_arguments(argv + 1) == 0)
 			return (free_tab(array), free(args), NULL);
 		free_tab(array);
 		array = argv + 1;

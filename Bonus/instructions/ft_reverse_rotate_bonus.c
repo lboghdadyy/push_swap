@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_reverse_rotate_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:50 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 14:37:12 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:31:29 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
+#include "../ft_push_swap_bonus.h"
 
 void	reverse_rotate(t_list **list)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:27:24 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 12:31:04 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:32:23 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
+#include "../ft_push_swap_bonus.h"
 
 long	ft_atoi(char *s)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
+/*   ft_push_swap_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:40:30 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 15:46:40 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:03:11 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ typedef	struct s_instrcuctions
 
 #define BUFFER_SIZE 1024
 
-char	*checking_arguments(int argc, char **argv);
-int		handel_this(t_list **stack_a, char	*args);
-char	*ft_strjoin(int size, char **strs, char sep);
+char	**checking_arguments(int argc, char **argv);
+int		handel_this(char	**args, t_list **stack_a);
+char	*ft_strjoin(int size, char **strs, char *sep);
+char	*ft_strjoin_gnl(char *start, char *buff);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 t_list	*ft_lstnew(int value);
 t_list	*ft_lstlast(t_list *lst);
@@ -44,13 +45,13 @@ void	ft_lstadd_back(t_list **alst, t_list *new);
 long	ft_atoi(char *s);
 int		duplicate_args(t_list *list);
 char	*get_next_line(int fd);
-char	*ft_strchr(char *str, char c);
+char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
 int		ft_contains_number(char *s);
 char	*get_next_line(int fd);
 void	free_tab(char **str);
 char	*ft_strdup(char *s1);
-int		are_they_sorted(t_list **list);
+int		are_they_sorted(t_list *list);
 int		getting_instructions(t_list **s_a, t_list **s_b, char *ins);
 void	sa(t_list **stack);
 void	sb(t_list **stack);
