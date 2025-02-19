@@ -6,12 +6,11 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 13:09:47 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:47:22 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
@@ -20,7 +19,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	check_one_arg(char *s)
+int	ft_check_one_arg(char *s)
 {
 	int	i;
 
@@ -43,13 +42,15 @@ int	check_one_arg(char *s)
 	return (1);
 }
 
-int	is_it_empty(char *arg)
+int	ft_is_it_empty(char *arg)
 {
-	int index;
+	int	index;
 	int	numbers_count;
 
 	index = 0;
 	numbers_count = 0;
+	if (!arg)
+		return (1);
 	while (arg[index])
 	{
 		if (ft_isdigit(arg[index]))
@@ -62,23 +63,23 @@ int	is_it_empty(char *arg)
 		return (1);
 }
 
-int	check_multi_arguments(char **array)
+int	ft_check_multi_arguments(char **array)
 {
-	int index;
+	int	index;
 
 	if (!array || !*array)
 		return (0);
 	index = 0;
 	while (array[index])
 	{
-		if (check_one_arg(array[index]) == 0 || is_it_empty(array[index]))
+		if (ft_check_one_arg(array[index]) == 0 || ft_is_it_empty(array[index]))
 			return (0);
 		index++;
 	}
 	return (1);
 }
 
-char	**checking_arguments(int argc, char **argv)
+char	**ft_checking_arguments(int argc, char **argv)
 {
 	int		i;
 	char	**array;
@@ -88,8 +89,8 @@ char	**checking_arguments(int argc, char **argv)
 	if (argc == 2)
 	{
 		array = ft_split(argv[1], ' ');
-		if (check_multi_arguments(array) == 0)
-			return (free_tab(array), NULL);
+		if (ft_check_multi_arguments(array) == 0)
+			return (ft_free_tab(array), NULL);
 	}
 	else
 	{
@@ -99,10 +100,8 @@ char	**checking_arguments(int argc, char **argv)
 		array = ft_split(args, ' ');
 		if (!array)
 			return (free(args), NULL);
-		if (check_multi_arguments(array) == 0)
-			return (free_tab(array), free(args), NULL);
-		free_tab(array);
-		array = argv + 1;
+		if (ft_check_multi_arguments(array) == 0)
+			return (ft_free_tab(array), free(args), NULL);
 		free(args);
 	}
 	return (array);

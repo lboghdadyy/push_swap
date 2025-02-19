@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/sbaghdad/push_swap/Mandatory/sort",
-      "program": "/home/sbaghdad/push_swap/Mandatory/sort/build/Debug/outDebug",
+      "cwd": "/home/sbaghdad/push_swap/Bonus",
+      "program": "/home/sbaghdad/push_swap/Bonus/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

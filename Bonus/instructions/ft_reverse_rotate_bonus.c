@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse_rotate_bonus.c                          :+:      :+:    :+:   */
+/*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:50 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:31:29 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:52:55 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
-void	reverse_rotate(t_list **list)
+void	ft_reverse_rotate(t_list **list)
 {
 	t_list	*last;
 	t_list	*new_last;
@@ -28,18 +28,18 @@ void	reverse_rotate(t_list **list)
 	*list = last;
 }
 
-void	rra(t_list **stack)
+void	ft_rra(t_list **stack)
 {
-	reverse_rotate(stack);
+	ft_reverse_rotate(stack);
 }
 
-void	rrb(t_list **stack)
+void	ft_rrb(t_list **stack)
 {
-	reverse_rotate(stack);
+	ft_reverse_rotate(stack);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	ft_reverse_rotate(stack_a);
+	ft_reverse_rotate(stack_b);
 }

@@ -1,13 +1,4 @@
 {
-  "files.associations": {
-    "push_swap.h": "c",
-    "chrono": "c",
-    "variant": "c",
-    "cstdlib": "c",
-    "push_swap_bonus.h": "c",
-    "random": "c",
-    "stdio.h": "c"
-  },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",

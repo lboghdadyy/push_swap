@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:17 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:32:52 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:53:38 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {

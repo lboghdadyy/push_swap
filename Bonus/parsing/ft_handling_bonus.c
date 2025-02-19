@@ -6,11 +6,11 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 11:01:50 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:26:09 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
 int	ft_list_size(char **array)
 {
@@ -24,7 +24,7 @@ int	ft_list_size(char **array)
 	return (index);
 }
 
-long long	getting_number(char *string, int *index)
+long long	ft_getting_number(char *string, int *index)
 {
 	int			index1;
 	char		number[30];
@@ -43,7 +43,7 @@ long long	getting_number(char *string, int *index)
 	return (value);
 }
 
-t_list	*create_linked_list(char **args ,int args_count)
+t_list	*ft_create_linked_list(char **args, int args_count)
 {
 	long long	value;
 	t_list		*tmp;
@@ -55,7 +55,7 @@ t_list	*create_linked_list(char **args ,int args_count)
 	while (index < args_count)
 	{
 		value = ft_atoi(args[index]);
-		if (value < -2147483648 || value > 2147483647)
+		if (value == 2147483648)
 			return (NULL);
 		tmp = ft_lstnew(value);
 		if (!tmp)
@@ -66,10 +66,12 @@ t_list	*create_linked_list(char **args ,int args_count)
 	return (lst);
 }
 
-int	are_they_sorted(t_list *list)
+int	ft_are_they_sorted(t_list *list)
 {
 	int	i;
 
+	if (!list)
+		return (1);
 	i = list->content;
 	list = list->next;
 	while (list)
@@ -83,18 +85,18 @@ int	are_they_sorted(t_list *list)
 	return (0);
 }
 
-int	handel_this(char	**args, t_list **stack_a)
+int	ft_convert(char	**args, t_list **stack_a)
 {
 	int		args_count;
 
 	args_count = ft_list_size(args);
 	if (args_count == 0)
 		return (-1);
-	*stack_a = create_linked_list(args, args_count);
-	if (!*stack_a)
+	*stack_a = ft_create_linked_list(args, args_count);
+	if (!(*stack_a))
 		return (-1);
-	if (duplicate_args(*stack_a))
-		return (ft_lstclear(stack_a), -1);
-	ft_lstclear(stack_a);
+	if (ft_duplicate_args(*stack_a))
+		return (ft_lstclear(stack_a), ft_free_tab(args), -1);
+	ft_free_tab(args);
 	return (1);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbaghdad <sbaghdad@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:38 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/15 14:50:17 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:34:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap(t_list **stack)
+void	ft_swap(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -26,21 +26,21 @@ void	swap(t_list **stack)
 	*stack = tmp2;
 }
 
-void	sa(t_list **stack)
+void	ft_sa(t_list **stack)
 {
-	swap(stack);
+	ft_swap(stack);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **stack)
+void	ft_sb(t_list **stack)
 {
-	swap(stack);
+	ft_swap(stack);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ft_ss(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	ft_swap(stack_a);
+	ft_swap(stack_b);
 	write(1, "ss\n", 3);
 }

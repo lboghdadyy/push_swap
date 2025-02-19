@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_dup_bonus.c                               :+:      :+:    :+:   */
+/*   ft_check_dup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:33:36 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:31:47 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:53:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
-int	duplicate_args(t_list *list)
+int	ft_duplicate_args(t_list *list)
 {
 	t_list	*outer;
 	t_list	*inner;

@@ -6,25 +6,11 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:22 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/16 19:13:11 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:08:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-#include <stdio.h>
-char	*ft_strchr(char *s, int c)
-{
-	if (!s)
-		return (NULL);
-	while ((*s != '\0') && (*s != c))
-	{
-		s++;
-	}
-	if (*s == c)
-		return (s);
-	return (NULL);
-}
 
 size_t	ft_whole_size(char **array, int size)
 {
@@ -85,24 +71,6 @@ int	ft_length(char **str, char *sep, int size)
 	}
 	l += ft_strlen(sep) * (size - 1);
 	return (l);
-}
-
-char	*ft_strcat(char *dest, char	*src)
-{
-	int	i;
-	int	count;
-
-	count = 0;
-	i = 0;
-	while (dest[count] != '\0')
-		count++;
-	while (src[i] != '\0')
-	{
-		dest[count + i] = src[i];
-		i++;
-	}
-	dest[count + i] = '\0';
-	return (dest);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)

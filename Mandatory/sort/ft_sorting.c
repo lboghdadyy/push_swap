@@ -6,13 +6,13 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:08 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 23:51:46 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:16:05 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	set_status(t_list *stack)
+void	ft_set_status(t_list *stack)
 {
 	int	mid;
 
@@ -30,7 +30,7 @@ void	set_status(t_list *stack)
 	}
 }
 
-int	status_index(t_list *list, int index)
+int	ft_index_st(t_list *list, int index)
 {
 	while (list)
 	{
@@ -41,7 +41,7 @@ int	status_index(t_list *list, int index)
 	return (1);
 }
 
-void	set_target_status(t_list **stack_a, t_list **stack_b)
+void	ft_set_target_status(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;
@@ -68,48 +68,48 @@ int	ft_execute(int i, int trgt, t_list **s_a, t_list **s_b)
 	{
 		if ((*s_b)->index != i && (*s_a)->index != trgt)
 		{
-			if (status_index(*s_b, i) && status_index(*s_a, trgt))
-				rrr(s_a, s_b);
-			else if (!status_index(*s_b, i) && status_index(*s_a, trgt))
-				up_down(s_a, s_b);
-			else if (!status_index(*s_b, i) && !status_index(*s_a, trgt))
-				rr(s_a, s_b);
+			if (ft_index_st(*s_b, i) == 1 && ft_index_st(*s_a, trgt) == 1)
+				ft_rrr(s_a, s_b);
+			else if (ft_index_st(*s_b, i) == 0 && ft_index_st(*s_a, trgt) == 1)
+				ft_up_down(s_a, s_b);
+			else if (ft_index_st(*s_b, i) == 0 && ft_index_st(*s_a, trgt) == 0)
+				ft_rr(s_a, s_b);
 			else
-				down_up(s_a, s_b);
+				ft_down_up(s_a, s_b);
 		}
 		else
-			cont_the_proc(i, trgt, s_a, s_b);
-		set_status(*s_a);
-		set_status(*s_b);
+			ft_cont_the_proc(i, trgt, s_a, s_b);
+		ft_set_status(*s_a);
+		ft_set_status(*s_b);
 	}
-	pa(s_a, s_b);
+	ft_pa(s_a, s_b);
 	return (1);
 }
 
-int	start_sorting(t_list **s_a, t_list **s_b)
+int	ft_start_sorting(t_list **s_a, t_list **s_b)
 {
 	int	best;
 
 	while (*s_b)
 	{
-		set_index(s_b);
-		set_index(s_a);
-		set_status(*s_b);
-		set_status(*s_a);
-		find_target(s_a, s_b);
-		set_target_status(s_a, s_b);
-		best = best_move(*s_a, *s_b);
+		ft_set_index(s_b);
+		ft_set_index(s_a);
+		ft_set_status(*s_b);
+		ft_set_status(*s_a);
+		ft_find_target(s_a, s_b);
+		ft_set_target_status(s_a, s_b);
+		best = ft_best_move(*s_a, *s_b);
 		if (best == -1)
 			return (-1);
-		if (!ft_execute(best, get_target(*s_b, best), s_a, s_b))
+		if (!ft_execute(best, ft_get_target(*s_b, best), s_a, s_b))
 			return (-1);
 	}
-	while (are_they_sorted(*s_a))
+	while (ft_are_they_sorted(*s_a))
 	{
 		if (ft_status_of_min(*s_a))
-			rra(s_a);
+			ft_rra(s_a);
 		else
-			ra(s_a);
+			ft_ra(s_a);
 	}
 	return (1);
 }

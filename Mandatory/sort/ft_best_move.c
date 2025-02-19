@@ -6,13 +6,13 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:14 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 12:29:02 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/18 11:23:18 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	best_move(t_list *stack_a, t_list *stack_b)
+int	ft_best_move(t_list *stack_a, t_list *stack_b)
 {
 	int		count_b;
 	int		count_a;
@@ -41,7 +41,7 @@ int	best_move(t_list *stack_a, t_list *stack_b)
 	return (index);
 }
 
-int	get_target(t_list *list, int index)
+int	ft_get_target(t_list *list, int index)
 {
 	while (list->index != index)
 		list = list->next;

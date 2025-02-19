@@ -6,11 +6,11 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:27:24 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 17:46:11 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:51:51 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap_bonus.h"
 
 long	ft_atoi(char *s)
 {

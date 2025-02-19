@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 19:47:32 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:26:58 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_list_size(char **array)
 	return (index);
 }
 
-long long	getting_number(char *string, int *index)
+long long	ft_getting_number(char *string, int *index)
 {
 	int			index1;
 	char		number[30];
@@ -43,7 +43,7 @@ long long	getting_number(char *string, int *index)
 	return (value);
 }
 
-t_list	*create_linked_list(char **args ,int args_count)
+t_list	*ft_create_linked_list(char **args, int args_count)
 {
 	long long	value;
 	t_list		*tmp;
@@ -55,7 +55,7 @@ t_list	*create_linked_list(char **args ,int args_count)
 	while (index < args_count)
 	{
 		value = ft_atoi(args[index]);
-		if (value < -2147483648 || value > 2147483647)
+		if (value == 2147483648)
 			return (NULL);
 		tmp = ft_lstnew(value);
 		if (!tmp)
@@ -66,10 +66,12 @@ t_list	*create_linked_list(char **args ,int args_count)
 	return (lst);
 }
 
-int	are_they_sorted(t_list *list)
+int	ft_are_they_sorted(t_list *list)
 {
 	int	i;
 
+	if (!list)
+		return (1);
 	i = list->content;
 	list = list->next;
 	while (list)
@@ -83,30 +85,29 @@ int	are_they_sorted(t_list *list)
 	return (0);
 }
 
-int	handel_this(char	**args, t_list **stack_a, t_list **stack_b)
+int	ft_pre_sort(char	**args, t_list **stack_a, t_list **stack_b)
 {
 	int		args_count;
 
 	args_count = ft_list_size(args);
 	if (args_count == 0)
 		return (-1);
-	*stack_a = create_linked_list(args, args_count);
+	*stack_a = ft_create_linked_list(args, args_count);
 	if (!*stack_a)
 		return (-1);
-	if (duplicate_args(*stack_a))
-		return (ft_lstclear(stack_a), -1);
-	if (are_they_sorted(*stack_a))
+	if (ft_duplicate_args(*stack_a))
+		return (ft_lstclear(stack_a), ft_free_tab(args), -1);
+	ft_free_tab(args);
+	if (ft_are_they_sorted(*stack_a))
 	{
 		if (args_count == 2)
-			sa(stack_a);
+			ft_sa(stack_a);
 		else if (args_count == 3)
-			sort_three(stack_a);
-		else if (args_count == 4)
-			sort_four(stack_a, stack_b);
-		else if (args_count == 5)
-			sort_five(stack_a, stack_b);
+			ft_sort_three(stack_a);
+		else if (args_count == 5 || args_count == 4)
+			ft_sort_five(stack_a, stack_b);
 		else
-			just_sort(stack_a, stack_b);
+			ft_big_sort(stack_a, stack_b);
 	}
 	ft_lstclear(stack_a);
 	return (1);

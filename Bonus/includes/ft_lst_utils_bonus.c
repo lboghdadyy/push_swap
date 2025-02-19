@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_utils_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lst_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:04 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:32:38 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:52:35 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "push_swap_bonus.h"
 
 t_list	*ft_lstnew(int value)
 {
@@ -26,9 +26,7 @@ t_list	*ft_lstnew(int value)
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if(!lst)
-		return NULL;
-	while (lst->next)
+	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
 }
@@ -37,8 +35,6 @@ int	ft_lstsize(t_list *lst)
 {
 	size_t	i;
 
-	if (!lst)
-		return (0);
 	i = 0;
 	while (lst)
 	{
@@ -76,4 +72,3 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		*alst = new;
 	new->next = NULL;
 }
-

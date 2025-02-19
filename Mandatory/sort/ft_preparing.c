@@ -6,13 +6,13 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:52 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 23:56:14 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:12:52 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_the_index(int value, t_list *list)
+int	ft_get_the_index(int value, t_list *list)
 {
 	while (list)
 	{
@@ -23,7 +23,7 @@ int	get_the_index(int value, t_list *list)
 	return (-1);
 }
 
-int	find_target(t_list **stack_a, t_list **stack_b)
+int	ft_find_target(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp_b;
 	t_list	*tmp_a;
@@ -33,11 +33,11 @@ int	find_target(t_list **stack_a, t_list **stack_b)
 
 	if (!stack_a || !stack_b || !(*stack_a) || !(*stack_b))
 		return (-1);
-	(1) && (min_val = get_the_min(*stack_a), tmp_b = *stack_b);
+	(1) && (min_val = ft_get_the_min(*stack_a), tmp_b = *stack_b);
 	while (tmp_b)
 	{
-		(1) && (tmp_a = *stack_a, n_big = get_the_max(*stack_a));
-		trgt_indx = get_the_index(min_val, *stack_a);
+		(1) && (tmp_a = *stack_a, n_big = ft_get_the_max(*stack_a));
+		trgt_indx = ft_get_the_index(min_val, *stack_a);
 		if (trgt_indx == -1)
 			return (-1);
 		while (tmp_a)
@@ -52,42 +52,39 @@ int	find_target(t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-void	start_pushing(t_list **stack_a, t_list **stack_b)
+void	ft_start_pushing(t_list **stack_a, t_list **stack_b)
 {
-	int mid;
-	int min;
-	int max;
+	int	mid;
+	int	min;
+	int	max;
 
-	max = get_the_max(*stack_a);
-	min = get_the_min(*stack_a);
+	max = ft_get_the_max(*stack_a);
+	min = ft_get_the_min(*stack_a);
 	mid = (min + max) / 2;
-
 	while (ft_lstsize(*stack_a) > 3)
 	{
-		if ((*stack_a)->content >= mid)
+		if ((*stack_a)->content > mid)
 		{
-			pb(stack_a, stack_b);
-			if (ft_lstsize(*stack_b) != 1) 
-				rb(stack_b);
+			ft_pb(stack_a, stack_b);
+			if (ft_lstsize(*stack_b) != 1)
+				ft_rb(stack_b);
 		}
 		else
-			pb(stack_a, stack_b);
+			ft_pb(stack_a, stack_b);
 	}
 }
 
-void	just_sort(t_list **stack_a, t_list **stack_b)
+void	ft_big_sort(t_list **stack_a, t_list **stack_b)
 {
-	if (are_they_sorted(*stack_a))
+	if (ft_are_they_sorted(*stack_a))
 	{
-		start_pushing(stack_a, stack_b);
-		sort_three(stack_a);
-		if((*stack_a)->content > (*stack_a)->next->content)
-			sa(stack_a);
-		set_index(stack_a);
-		set_index(stack_b);
-		if (!find_target(stack_a, stack_b))
+		ft_start_pushing(stack_a, stack_b);
+		ft_sort_three(stack_a);
+		ft_set_index(stack_a);
+		ft_set_index(stack_b);
+		if (!ft_find_target(stack_a, stack_b))
 			return (ft_lstclear(stack_a));
-		if (!start_sorting(stack_a, stack_b))
+		if (!ft_start_sorting(stack_a, stack_b))
 			return (ft_lstclear(stack_a));
 	}
 }

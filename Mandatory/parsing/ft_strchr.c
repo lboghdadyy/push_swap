@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countinue_the_proccess.c                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 10:29:33 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 18:21:18 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/18 19:06:02 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/18 19:10:22 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h" 
+#include "../includes/push_swap.h"
 
-void	ft_cont_the_proc(int i, int t, t_list **s_a, t_list **s_b)
+char	*ft_strchr(char *s, int c)
 {
-	if ((*s_b)->index != i)
+	if (!s)
+		return (NULL);
+	while ((*s != '\0') && (*s != c))
 	{
-		while ((*s_b)->index != i)
-		{
-			if (ft_index_st(*s_b, i))
-				ft_rrb(s_b);
-			else
-				ft_rb(s_b);
-		}
+		s++;
 	}
-	if ((*s_a)->index != t)
-	{
-		while ((*s_a)->index != t)
-		{
-			if (ft_index_st(*s_a, t))
-				ft_rra(s_a);
-			else
-				ft_ra(s_a);
-		}
-	}
+	if (*s == c)
+		return (s);
+	return (NULL);
 }

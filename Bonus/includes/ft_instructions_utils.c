@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_instructions_lst_utils_bonus.c                  :+:      :+:    :+:   */
+/*   ft_instructions_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 15:05:30 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:32:32 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/19 11:37:11 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/19 15:47:03 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "push_swap_bonus.h"
 
-t_instructions	*ft_last_instruction(t_instructions *lst)
+t_instr	*ft_last_instruction(t_instr *lst)
 {
-    if (!lst)
-    {
-        // printf("hh\n");
-        return (NULL);
-    }
-	while (lst && lst->next)
+	if (!lst)
+	{
+		return (lst);
+	}
+	while (lst->next)
+	{
 		lst = lst->next;
+	}
 	return (lst);
 }
 
-void    add_instruction_back(t_instructions **alst, t_instructions *new)
+void	add_instruction_back(t_instr **alst, t_instr *new)
 {
-    t_instructions	*last;
+	t_instr	*last;
 
 	if (!alst || !new)
 		return ;
 	last = ft_last_instruction(*alst);
+	if (!last)
+	{
+		*alst = new;
+		return ;
+	}
 	if (*alst)
 		last->next = new;
 	else
@@ -38,11 +44,11 @@ void    add_instruction_back(t_instructions **alst, t_instructions *new)
 	new->next = NULL;
 }
 
-t_instructions	*ft_new_instr(char *line)
+t_instr	*ft_new_instr(char *line)
 {
-	t_instructions	*new;
+	t_instr	*new;
 
-	new = malloc(sizeof(t_instructions));
+	new = malloc(sizeof(t_instr));
 	if (!new)
 		return (NULL);
 	new->instr = line;
@@ -50,10 +56,11 @@ t_instructions	*ft_new_instr(char *line)
 	return (new);
 }
 
-int	ft_instr_size(t_instructions *list)
+int	ft_instr_size(t_instr *list)
 {
-	int count = 0;
+	int	count;
 
+	count = 0;
 	if (!list)
 		return (-1);
 	while (list)
@@ -64,18 +71,17 @@ int	ft_instr_size(t_instructions *list)
 	return (count);
 }
 
-void	ft_clear_instructions(t_instructions **lst)
+void	ft_clear_instructions(t_instr **lst)
 {
-	t_instructions	*aux;
+	t_instr	*aux;
 
 	if (!*lst)
 		return ;
 	while (*lst)
 	{
 		aux = (*lst)->next;
-        free ((*lst)->instr);
+		free ((*lst)->instr);
 		free (*lst);
 		*lst = aux;
 	}
-	*lst = NULL;
 }

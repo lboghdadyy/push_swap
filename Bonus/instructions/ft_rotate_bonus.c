@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotat_bonus.c                                   :+:      :+:    :+:   */
+/*   ft_rotate_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:45 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:31:32 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:47:20 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
-void	rotat(t_list **list)
+void	ft_rotate(t_list **list)
 {
 	t_list	*tmp;
 	t_list	*last;
@@ -26,20 +26,18 @@ void	rotat(t_list **list)
 	tmp->next = NULL;
 }
 
-
-
-void	ra(t_list **stack)
+void	ft_ra(t_list **stack)
 {
-	rotat(stack);
+	ft_rotate(stack);
 }
 
-void	rb(t_list **stack)
+void	ft_rb(t_list **stack)
 {
-	rotat(stack);
+	ft_rotate(stack);
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	ft_rr(t_list **stack_a, t_list **stack_b)
 {
-	rotat(stack_a);
-	rotat(stack_b);
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
 }

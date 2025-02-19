@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_bonus.c                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 12:27:24 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 10:32:23 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/18 18:58:37 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/19 10:53:34 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
+#include "../includes/push_swap_bonus.h"
 
-long	ft_atoi(char *s)
+char	*ft_strcat(char *dest, char *src)
 {
-	long	number;
-	int		sign;
-	int		i;
+	int	i;
+	int	count;
 
+	count = 0;
 	i = 0;
-	sign = 1;
-	number = 0;
-	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
-		i++;
-	if (s[i] == '+' || s[i] == '-')
+	while (dest[count] != '\0')
+		count++;
+	while (src[i] != '\0')
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		dest[count + i] = src[i];
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		number = (number * 10) + (s[i] - 48);
-		i++;
-	}
-	return (number * sign);
+	dest[count + i] = '\0';
+	return (dest);
 }

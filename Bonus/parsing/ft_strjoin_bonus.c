@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:22 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/17 11:05:19 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:53:31 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_push_swap_bonus.h"
-
-#include <stdio.h>
-char	*ft_strchr(char *s, int c)
-{
-	if (!s)
-		return (NULL);
-	while ((*s != '\0') && (*s != c))
-	{
-		s++;
-	}
-	if (*s == c)
-		return (s);
-	return (NULL);
-}
+#include "../includes/push_swap_bonus.h"
 
 size_t	ft_whole_size(char **array, int size)
 {
@@ -43,22 +29,14 @@ size_t	ft_whole_size(char **array, int size)
 	return (count);
 }
 
-int	ft_contains_number(char *s)
+size_t	ft_strlen(char	*str)
 {
-	int	index;
+	size_t	i;
 
-	index = 0;
-	while (s[index])
-	{
-		while (s[index] == 32 && s[index])
-			index++;
-		if (!ft_strchr("0123456789+-", s[index]) || !s[index])
-		{
-			return (0);
-		}
-		index++;
-	}	
-	return (1);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 int	ft_length(char **str, char *sep, int size)
@@ -75,24 +53,6 @@ int	ft_length(char **str, char *sep, int size)
 	}
 	l += ft_strlen(sep) * (size - 1);
 	return (l);
-}
-
-char	*ft_strcat(char *dest, char	*src)
-{
-	int	i;
-	int	count;
-
-	count = 0;
-	i = 0;
-	while (dest[count] != '\0')
-		count++;
-	while (src[i] != '\0')
-	{
-		dest[count + i] = src[i];
-		i++;
-	}
-	dest[count + i] = '\0';
-	return (dest);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
