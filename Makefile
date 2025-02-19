@@ -1,5 +1,5 @@
 CC=cc
-CFLAGS=-Wall -Wextra -Werror -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror -fsanitize=address -g3
 RM=rm -rf
 SRCS=Mandatory/ft_push_swap.c Mandatory/parsing/ft_strchr.c Mandatory/sort/ft_handling.c Mandatory/parsing/ft_checking.c Mandatory/parsing/ft_split.c Mandatory/parsing/ft_strjoin.c Mandatory/parsing/ft_substr.c Mandatory/includes/ft_atoi.c Mandatory/includes/ft_lst_utils.c \
 		Mandatory/instructions/ft_push.c Mandatory/instructions/ft_reverse_rotate.c Mandatory/instructions/ft_rotate.c Mandatory/instructions/ft_swap.c Mandatory/sort/ft_sort_small_numb.c Mandatory/sort/ft_preparing.c Mandatory/sort/ft_sorting.c \

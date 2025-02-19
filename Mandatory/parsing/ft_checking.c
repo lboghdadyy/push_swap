@@ -6,11 +6,12 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 15:47:22 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:16:47 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
@@ -37,7 +38,9 @@ int	ft_check_one_arg(char *s)
 			i++;
 		}
 		else
+		{
 			return (0);
+		}
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:11 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 16:34:48 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:02:31 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	main(int ac, char **av)
 			return (write (2, "Error\n", 6), 1);
 		if (ft_convert(args, &stack_a) == -1)
 			return (write (2, "Error\n", 6), 1);
-		if (!get_instructions(&stack_a, &stack_b))
+		if (get_instructions(&stack_a, &stack_b) == -1)
 			return (ft_lstclear(&stack_a), 1);
 		if (!ft_are_they_sorted(stack_a) && !stack_b)
 			write(1, "OK\n", 3);
