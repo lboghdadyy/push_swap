@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:33:36 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 12:34:12 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/24 09:49:42 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_duplicate_args(t_list *list)
 	t_list	*inner;
 
 	outer = list;
+	if (!list)
+		return (0);
 	while (outer)
 	{
 		inner = outer->next;

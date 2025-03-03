@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:22 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 18:16:29 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/24 09:52:37 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,19 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*str;
 	int		i;
 
-	str = NULL;
-	i = 0;
+	(1) && (str = NULL, i = 0);
+	if (!strs || !(*strs) || !sep)
+		return (NULL);
 	if (size <= 0)
-	{
-		str = malloc(sizeof(char) * 1);
-		*str = '\0';
-		return (str);
-	}
+		return (ft_strdup(""));
 	str = malloc(sizeof(char) * ft_length(strs, sep, size) + 1);
 	if (!str)
 		return (str);
 	str[i] = '\0';
 	while (i < size)
 	{
+		if (strs[i][0] == '\0')
+			return (free(str), NULL);
 		ft_strcat(str, strs[i]);
 		if (i < size - 1)
 			ft_strcat(str, sep);

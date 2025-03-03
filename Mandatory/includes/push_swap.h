@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:31:01 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 18:59:19 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:45:06 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
 int		ft_status_of_min(t_list *stack);
 char	*ft_strcat(char *dest, char *src);
+char	*ft_strdup(char *s1);
 
 /*shortcuts*/
 

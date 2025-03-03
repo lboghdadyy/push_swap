@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:05 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 16:04:46 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:10:01 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	ft_sort_five(t_list **stack_a, t_list **stack_b)
 		ft_pb(stack_a, stack_b);
 	}
 	ft_sort_three(stack_a);
-	ft_pa(stack_a, stack_b);
-	ft_pa(stack_a, stack_b);
+	while (*stack_b)
+		ft_pa(stack_a, stack_b);
 }
 
 void	ft_set_index(t_list **stack)

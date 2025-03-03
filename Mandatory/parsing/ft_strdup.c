@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min_status.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 15:46:34 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/27 15:38:21 by sbaghdad         ###   ########.fr       */
+/*   Created: 2025/02/24 09:53:33 by sbaghdad          #+#    #+#             */
+/*   Updated: 2025/02/24 09:56:09 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_status_of_min(t_list *stack)
+char	*ft_strdup(char *s1)
 {
-	t_list	*tmp;
-	int		min;
+	char	*str;
+	size_t	i;
 
-	if (!stack)
-		return (0);
-	min = ft_get_the_min(stack);
-	tmp = stack;
-	while (tmp)
+	if (!s1)
+		return (NULL);
+	str = malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		if (tmp->content == min)
-		{
-			if (tmp->index >= ((ft_lstsize(stack)) / 2))
-				return (1);
-			else
-				return (0);
-		}
-		tmp = tmp->next;
+		str[i] = s1[i];
+		i++;
 	}
-	return (1);
+	str[i] = 0;
+	return (str);
 }

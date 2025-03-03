@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:08 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 18:16:05 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:13:44 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_set_status(t_list *stack)
 {
 	int	mid;
 
+	if (!stack)
+		return ;
 	if (ft_lstsize(stack) % 2 == 0)
 		mid = ft_lstsize(stack) / 2;
 	else
@@ -63,7 +65,7 @@ void	ft_set_target_status(t_list **stack_a, t_list **stack_b)
 int	ft_execute(int i, int trgt, t_list **s_a, t_list **s_b)
 {
 	if (trgt == -1)
-		return (-1);
+		return (0);
 	while ((*s_b)->index != i || (*s_a)->index != trgt)
 	{
 		if ((*s_b)->index != i && (*s_a)->index != trgt)
@@ -100,9 +102,9 @@ int	ft_start_sorting(t_list **s_a, t_list **s_b)
 		ft_set_target_status(s_a, s_b);
 		best = ft_best_move(*s_a, *s_b);
 		if (best == -1)
-			return (-1);
+			return (ft_lstclear(s_a), ft_lstclear(s_b), -1);
 		if (!ft_execute(best, ft_get_target(*s_b, best), s_a, s_b))
-			return (-1);
+			return (ft_lstclear(s_a), ft_lstclear(s_b), -1);
 	}
 	while (ft_are_they_sorted(*s_a))
 	{

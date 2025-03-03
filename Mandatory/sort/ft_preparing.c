@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:52 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 18:12:52 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:23:07 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	ft_big_sort(t_list **stack_a, t_list **stack_b)
 		ft_set_index(stack_b);
 		if (!ft_find_target(stack_a, stack_b))
 			return (ft_lstclear(stack_a));
-		if (!ft_start_sorting(stack_a, stack_b))
-			return (ft_lstclear(stack_a));
+		ft_start_sorting(stack_a, stack_b);
 	}
 }

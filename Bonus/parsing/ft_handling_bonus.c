@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 16:26:09 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:00:17 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_list_size(char **array)
 	int	index;
 
 	index = 0;
+	if (!array)
+		return (0);
 	while (array[index])
 	{
 		index++;

@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 18:56:33 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:42:28 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ size_t	word_len(char *s, char c)
 {
 	size_t	word_len;
 
+	if (!s)
+		return (0);
 	if (!ft_strchr(s, c))
 		word_len = ft_strlen(s);
 	else
@@ -64,9 +66,11 @@ char	**ft_split(char *s, char c)
 	int		i;
 	char	*tmp;
 
+	if (!s)
+		return (NULL);
 	(1) && (i = 0, lst = malloc((ft_countword(s, c) + 1) * sizeof(char *)));
-	if (!s || !lst)
-		return (0);
+	if (!lst)
+		return (NULL);
 	while (*s)
 	{
 		while (*s == c && *s)
@@ -77,8 +81,7 @@ char	**ft_split(char *s, char c)
 			tmp = ft_substr(s, 0, word_lenght);
 			if (!tmp)
 				return (ft_free_tab(lst), NULL);
-			lst[i++] = tmp;
-			s += word_lenght;
+			(1) && (lst[i++] = tmp, s += word_lenght);
 		}
 	}
 	lst[i] = NULL;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:26 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 10:53:23 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:41:56 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ char	**ft_split(char *s, char c)
 	int		i;
 	char	*tmp;
 
+	if (!s)
+		return (NULL);
 	(1) && (i = 0, lst = malloc((ft_countword(s, c) + 1) * sizeof(char *)));
-	if (!s || !lst)
-		return (0);
+	if (!lst)
+		return (NULL);
 	while (*s)
 	{
 		while (*s == c && *s)
@@ -77,8 +79,7 @@ char	**ft_split(char *s, char c)
 			tmp = ft_substr(s, 0, word_lenght);
 			if (!tmp)
 				return (ft_free_tab(lst), NULL);
-			lst[i++] = tmp;
-			s += word_lenght;
+			(1) && (lst[i++] = tmp, s += word_lenght);
 		}
 	}
 	lst[i] = NULL;

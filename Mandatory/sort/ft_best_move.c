@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:14 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 11:23:18 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:50:39 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_best_move(t_list *stack_a, t_list *stack_b)
 	int		index;
 	int		count;
 
-	(1) && (tmp = stack_b, index = -1, count = 6000);
+	(1) && (tmp = stack_b, index = -1, count = 2147483647);
 	while (tmp)
 	{
 		if (tmp->status)

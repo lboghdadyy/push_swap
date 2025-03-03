@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checking.c                                      :+:      :+:    :+:   */
+/*   ft_checking_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:29 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 10:53:19 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:40:12 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ int	ft_check_one_arg(char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 	{
 		while (s[i] == 32)
 			i++;
-		if (ft_isdigit(s[i]))
+		if (!s[i])
+			return (1);
+		if (ft_isdigit(s[i]) && s[i])
 			i++;
-		else if ((s[i] == '-' || s[i] == '+'))
+		else if ((s[i] == '-' || s[i] == '+') && s[i])
 		{
-			if (!ft_isdigit(s[i + 1]) || (i > 0 && s[i - 1] != 32))
+			if ((!ft_isdigit(s[i + 1]) || (i > 0 && s[i - 1] != 32)) && s[i])
 				return (0);
 			i++;
 		}
@@ -94,14 +98,14 @@ char	**ft_checking_arguments(int argc, char **argv)
 	}
 	else
 	{
+		if (ft_check_multi_arguments(argv + 1) == 0)
+			return (0);
 		args = ft_strjoin(argc - 1, argv + 1, " ");
 		if (!args)
-			return (0);
+			return (NULL);
 		array = ft_split(args, ' ');
 		if (!array)
 			return (free(args), NULL);
-		if (ft_check_multi_arguments(array) == 0)
-			return (ft_free_tab(array), free(args), NULL);
 		free(args);
 	}
 	return (array);

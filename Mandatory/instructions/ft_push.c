@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:30:54 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/18 23:10:48 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:03:40 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(t_list **stack1, t_list **stack2)
 {
 	t_list	*tmp;
 
-	if (!stack1 || !(*stack1))
+	if (!stack1 || !(*stack1) || !stack2)
 		return ;
 	tmp = *stack1;
 	*stack1 = (*stack1)->next;

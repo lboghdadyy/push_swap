@@ -6,7 +6,7 @@
 /*   By: sbaghdad < sbaghdad@student.1337.ma>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:29:39 by sbaghdad          #+#    #+#             */
-/*   Updated: 2025/02/19 16:26:58 by sbaghdad         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:25:04 by sbaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_list_size(char **array)
 	int	index;
 
 	index = 0;
+	if (!array)
+		return (0);
 	while (array[index])
 	{
 		index++;
@@ -50,16 +52,17 @@ t_list	*ft_create_linked_list(char **args, int args_count)
 	int			index;
 	t_list		*lst;
 
-	lst = NULL;
-	index = 0;
+	(1) && (lst = NULL, index = 0);
+	if (!args)
+		return (NULL);
 	while (index < args_count)
 	{
 		value = ft_atoi(args[index]);
 		if (value == 2147483648)
-			return (NULL);
+			return (ft_free_tab(args), ft_lstclear(&lst), NULL);
 		tmp = ft_lstnew(value);
 		if (!tmp)
-			return (ft_lstclear(&lst), NULL);
+			return (ft_lstclear(&lst), ft_free_tab(args), NULL);
 		ft_lstadd_back(&lst, tmp);
 		index++;
 	}
@@ -91,7 +94,7 @@ int	ft_pre_sort(char	**args, t_list **stack_a, t_list **stack_b)
 
 	args_count = ft_list_size(args);
 	if (args_count == 0)
-		return (-1);
+		return (ft_free_tab(args), -1);
 	*stack_a = ft_create_linked_list(args, args_count);
 	if (!*stack_a)
 		return (-1);
