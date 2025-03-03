@@ -47,11 +47,7 @@ Your solution will be tested against different input sizes:
 - **5 Numbers**: Should be solved in at most 12 moves.
 - **100 Numbers**: Expected to be solved in ~700 moves or less.
 - **500 Numbers**: Expected to be solved in ~5500 moves or less.
-
-## Resources
-- [42 Push Swap Subject](https://cdn.intra.42.fr/pdf/pdf/96028/en.subject.pdf)
-- [Push Swap Visualization](https://github.com/o-reo/push_swap_visualizer)
-
+  
 ## Author
 Soufiane Baghdadi
 
